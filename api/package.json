@@ -1,0 +1,34 @@
+{
+  "name": "react_redux_webpack_node_ms",
+  "version": "1.0.0",
+  "description": "A RESTful NodeJS microservice",
+  "main": "app/server.js",
+  "scripts": {
+    "setup": "mongo node_restful_ms_example --eval \"db.dropDatabase()\"",
+    "test": "mocha \"test/**/*.js\"",
+    "start": "npm run setup && NODE_ENV=development node app/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rob-Leggett/react_redux_webpack.git"
+  },
+  "author": "Robert Leggett",
+  "license": "MIT",
+  "homepage": "https://github.com/Rob-Leggett/react_redux_webpack",
+  "bugs": {
+    "url": "https://github.com/Rob-Leggett/react_redux_webpack/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.8",
+    "morgan": "^1.7.0"
+  }
+}
