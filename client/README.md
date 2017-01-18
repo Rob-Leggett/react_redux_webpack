@@ -21,6 +21,10 @@ Running
 
 npm start
 
-### The node server is set to run on
+### The webpack dev server is set to run on
 
-**http://localhost:3030**
+**http://localhost:8080**
+
+or
+
+**http://localhost:8080/webpack-dev-server/**

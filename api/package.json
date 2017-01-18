@@ -4,7 +4,8 @@
   "description": "A RESTful NodeJS microservice",
   "main": "app/server.js",
   "scripts": {
-    "setup": "mongo node_restful_ms_example --eval \"db.dropDatabase()\"",
+    "mongo": "mongod --dbpath=database",
+    "setup": "mongo react_redux_example_db --eval \"db.dropDatabase()\"",
     "test": "mocha \"test/**/*.js\"",
     "start": "npm run setup && NODE_ENV=development node app/server.js"
   },

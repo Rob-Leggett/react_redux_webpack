@@ -12,8 +12,9 @@ Setup
 
 ***Database***
 
-1. Install mongoDB and have the service running.
-2. Run "npm start" to seed the database.
+1. Install mongoDB.  
+2. navigate to api -> "npm run mongo"
+3. Run "npm start" to seed the database.
 
 Testing
 =======
