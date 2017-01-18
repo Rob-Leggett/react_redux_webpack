@@ -4,8 +4,8 @@
   "description": "A ReactJS Client",
   "scripts": {
     "test": "mocha \"test/**/*.js\"",
-    "dev": "webpack -d --watch",
-    "build" : "webpack -p"
+    "dev": "webpack-dev-server --content-base public/ --hot --inline",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "html-webpack-plugin": "^2.26.0",
     "mocha": "^3.1.2",
     "proxyquire": "^1.7.10",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "babel-core": "^6.21.0",

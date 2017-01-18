@@ -7,4 +7,7 @@ class App extends React.Component {
   }
 }
 
-render(<App/>, document.getElementById('app'));
+const mountPoint = document.createElement('div');
+document.body.appendChild(mountPoint);
+
+render(<App/>, mountPoint);
