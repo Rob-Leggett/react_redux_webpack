@@ -1,22 +1,17 @@
-import React from 'react';
 import { render } from 'react-dom';
-import { CUSTOMER_ENDPOINT } from './constant/apiConstant';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { reducer } from './reducer/index'
+import App from './component/app/App'
 
-fetch(CUSTOMER_ENDPOINT)
-    .then((response) => {
-      return response.json();
-    })
-    .then((response) => {
-      console.log(response);
-    });
-
-class App extends React.Component {
-  render () {
-    return <p> Hello React!</p>;
-  }
-}
+const store = createStore(reducer);
 
 const mountPoint = document.createElement('div');
 document.body.appendChild(mountPoint);
 
-render(<App/>, mountPoint);
+render(
+    <Provider store={store}>
+      <App/>
+    </Provider>,
+    mountPoint
+);
