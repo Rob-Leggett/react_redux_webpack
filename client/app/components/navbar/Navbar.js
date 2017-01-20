@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import Login from '../login/Login'
 import Logout from '../logout/Logout'
-import { login, logout } from '../../actions/authenticate/actions'
 
 export default class Navbar extends Component {
 
   render() {
-    const { dispatch, isAuthenticated, errors } = this.props;
+    const { isAuthenticated, errors, onLogin, onLogout } = this.props;
 
     return (
         <nav className='navbar navbar-default'>
@@ -17,12 +16,12 @@ export default class Navbar extends Component {
               {!isAuthenticated &&
                 <Login
                     errors={errors}
-                    onLoginClick={ creds => dispatch(login(creds)) }
+                    onLoginClick={ (creds) => onLogin(creds) }
                 />
               }
 
               {isAuthenticated &&
-                <Logout onLogoutClick={() => dispatch(logout())} />
+                <Logout onLogoutClick={() => onLogout()} />
               }
 
             </div>
@@ -33,7 +32,8 @@ export default class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  errors: PropTypes.arrayOf(PropTypes.string)
+  errors: PropTypes.arrayOf(PropTypes.string),
+  onLogin: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired
 };

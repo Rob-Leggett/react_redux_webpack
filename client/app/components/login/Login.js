@@ -5,9 +5,9 @@ export default class Login extends Component {
   renderErrors() {
     const { errors } = this.props;
 
-    return errors.map((error) => {
+    return errors.map((error, i) => {
       return (
-          <p style={{color:'red'}}>{error}</p>
+          <p key={i} style={{color:'red'}}>{error}</p>
       );
     });
   }
