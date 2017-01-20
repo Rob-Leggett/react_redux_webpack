@@ -7,19 +7,22 @@ Requires
 
 Node v6.9.1
 
-Setup
+Build
 =====
 
+npm run build
 
 Testing
 =======
 
-npm test
+npm run test
 
 Running
 =======
 
-npm start
+npm run dev
+
+
 
 ### The webpack dev server is set to run on
 
