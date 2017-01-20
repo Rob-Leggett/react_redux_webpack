@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev')); // logging requests
 
 // CORS
-app.use(function (req, res, next) {
+app.all('*', function (req, res, next) {
   res.set('Content-Type', 'application/json');
   res.set('Access-Control-Allow-Origin', uiDomain);
   res.set('Access-Control-Allow-Headers', 'Content-Type,Content-Disposition,X-Requested-With,accept,token');

@@ -1,6 +1,22 @@
 # react_redux_webpack
 [![Build Status](https://travis-ci.org/Rob-Leggett/react_redux_webpack.svg?branch=master)](https://travis-ci.org/Rob-Leggett/react_redux_webpack)
 
+### Microservice
+
+ 1. Navigate to api sub directory
+ 2. Run "npm run mongo"
+ 3. Run "npm run start"
+ 
+ Addition details can be found under api README.MD
+
+### React
+ 
+ 1. Navigate to client sub directory
+ 2. Run "npm run dev"
+ 3. Goto http://localhost:8080
+ 
+ Additional details can be found under client README.MD
+
 
 Donations
 ====================
