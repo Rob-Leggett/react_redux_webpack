@@ -5,4 +5,4 @@ import authenticate from './authenticate'
 export default combineReducers({
   //users,
   authenticate
-})
+});

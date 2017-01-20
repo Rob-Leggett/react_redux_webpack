@@ -5,7 +5,7 @@
   "scripts": {
     "test": "mocha \"test/**/*.js\"",
     "dev": "webpack-dev-server --content-base public/ --hot --inline",
-    "build": "webpack -p"
+    "build": "webpack -p --display-error-details"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "whatwg-fetch": "^2.0.1"
   }
 }

@@ -4,7 +4,8 @@ import {
 
 const initialState = {
   isFetching: false,
-  isAuthenticated: !!localStorage.getItem('token')
+  isAuthenticated: !!localStorage.getItem('token'),
+  errors: []
 };
 
 export default function authenticate(state = initialState, action) {
@@ -24,7 +25,7 @@ export default function authenticate(state = initialState, action) {
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: false,
-        errors: state.errors.push(action.message)
+        errors: [action.message]
       });
     case LOGOUT_REQUEST:
       return Object.assign({}, state, {
