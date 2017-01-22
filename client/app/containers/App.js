@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Navbar from '../../components/navbar/Navbar'
-import * as AuthActions from '../../actions/authenticate/actions'
+import Navbar from '../components/navbar/Navbar'
+import * as AuthActions from '../actions/authenticate/actions'
 
 export class App extends Component {
   render () {
