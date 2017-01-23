@@ -71,11 +71,12 @@ describe('Authenticate Controller', () => {
           password: "Pass"
         }
       };
-      const expected = {token: tokenStub};
 
       authenticateController.authenticate(req, resStub);
 
-      queryUserPromise.then(() => {
+      queryUserPromise.then((user) => {
+        const expected = {name: user.name, role: user.role, token: tokenStub};
+
         expect(resStub.json.calledWith(expected)).to.equal(true);
       }).then(done, done);
     });
@@ -140,7 +141,7 @@ describe('Authenticate Controller', () => {
           password: "Pass"
         }
       };
-      const expected = {error: 'Authentication failed.'};
+      const expected = {name: req.body.name, error: 'Authentication failed.'};
 
       authenticateController.authenticate(req, resStub);
 
@@ -207,7 +208,7 @@ describe('Authenticate Controller', () => {
           password: "Guess"
         }
       };
-      const expected = {error: 'Authentication failed.'};
+      const expected = {name: req.body.name, error: 'Authentication failed.'};
 
       authenticateController.authenticate(req, resStub);
 
