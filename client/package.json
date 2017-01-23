@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A ReactJS Client",
   "scripts": {
-    "test": "mocha -w test/helpers/browser.js test/**/*.spec.js",
+    "test": "mocha test/helpers/browser.js test/**/*.spec.js",
     "dev": "webpack-dev-server --content-base public/ --hot --inline",
     "build": "webpack -p --display-error-details"
   },
