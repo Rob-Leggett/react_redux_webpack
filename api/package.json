@@ -6,7 +6,7 @@
   "scripts": {
     "mongo": "mongod --dbpath=database",
     "setup": "mongo react_redux_example_db --eval \"db.dropDatabase()\"",
-    "test": "mocha \"test/**/*.js\"",
+    "test": "mocha test/**/*.js",
     "start": "npm run setup && NODE_ENV=development node app/server.js"
   },
   "repository": {
