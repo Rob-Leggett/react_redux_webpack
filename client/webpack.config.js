@@ -12,6 +12,11 @@ const config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module : {
     loaders : [
       {
