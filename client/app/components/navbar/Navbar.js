@@ -4,13 +4,12 @@ import Login from '../login/Login'
 import Logout from '../logout/Logout'
 import style from './navbar.scss';
 
-
 export default class Navbar extends Component {
 
   render() {
     const { isAuthenticated, errors, onLogin, onLogout } = this.props;
 
-    const navBarStyles = classnames(style.navbar, style.navbarDefault);
+    const navBarStyles = classnames(style.navbar);
 
     return (
         <nav className={navBarStyles}>

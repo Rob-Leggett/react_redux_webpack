@@ -6,6 +6,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'app');
 
+let generateHtml = new HtmlWebpackPlugin({ title: 'My App' });
+let extractCSS = new ExtractTextPlugin('styles/[name].css', { allChunks: true });
+
 const config = {
   entry: APP_DIR + '/index.js',
   output: {
@@ -27,17 +30,13 @@ const config = {
       {
         test: /\.scss$/,
         include : APP_DIR,
-        loader: ExtractTextPlugin.extract('css!sass')
+        loader: extractCSS.extract(['css-loader?sourceMap','sass-loader'])
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'My App'
-    }),
-    new ExtractTextPlugin('styles/main.css', {
-      allChunks: true
-    })
+    generateHtml,
+    extractCSS
   ]
 };
 
