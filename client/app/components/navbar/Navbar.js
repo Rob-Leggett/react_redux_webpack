@@ -10,25 +10,24 @@ export default class Navbar extends Component {
     const { isAuthenticated, errors, onLogin, onLogout } = this.props;
 
     const navBarStyles = classnames(style.navbar);
+    const navBarBrandStyles = classnames(style.brand);
 
     return (
         <nav className={navBarStyles}>
-          <div className='container-fluid'>
-            <a className="navbar-brand" href="#">User Management App</a>
-            <div className='navbar-form'>
+          <a className={navBarBrandStyles} href="#">User Management App</a>
+          <div className='navbar-form'>
 
-              {!isAuthenticated &&
-                <Login
-                    errors={errors}
-                    onLoginClick={ (creds) => onLogin(creds) }
-                />
-              }
+            {!isAuthenticated &&
+              <Login
+                  errors={errors}
+                  onLoginClick={ (creds) => onLogin(creds) }
+              />
+            }
 
-              {isAuthenticated &&
-                <Logout onLogoutClick={() => onLogout()} />
-              }
+            {isAuthenticated &&
+              <Logout onLogoutClick={() => onLogout()} />
+            }
 
-            </div>
           </div>
         </nav>
     )

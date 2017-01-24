@@ -1,3 +1,7 @@
 .navbar {
   display: flex;
+
+  .brand {
+    flex: 1;
+  }
 }
