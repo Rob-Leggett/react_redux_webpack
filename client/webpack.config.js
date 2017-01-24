@@ -29,7 +29,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loader: extractCSS.extract('style', 'css!sass?sourceMap=true')
+        loader: extractCSS.extract('style', 'css?modules=true!sass?sourceMap=true')
       }
     ]
   },
