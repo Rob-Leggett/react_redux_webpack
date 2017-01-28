@@ -1,3 +1,5 @@
 .idea
 .DS_Store
 public
+client/node_modules/
+api/node_modules/
