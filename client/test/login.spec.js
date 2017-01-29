@@ -56,13 +56,19 @@ describe('<Login/>', function () {
       const wrapper = mount(<Login errors={errors} onLoginClick={onLoginClick} />);
 
       // when
-      wrapper.ref('username').simulate('change', {target: {value: 'test'}});
-      wrapper.ref('password').simulate('change', {target: {value: 'user'}});
+      const username = wrapper.ref('username');
+
+      username.node.value='test';
+      username.simulate('change', username);
+
+      const password = wrapper.ref('password');
+
+      password.node.value='user';
+      password.simulate('change', password);
 
       wrapper.find('button').simulate('click');
 
       // then
-      //expect(onLoginClick.calledWith(expected)).to.equal(true);
-      expect(onLoginClick.called).to.equal(true);
+      expect(onLoginClick.getCall(0).args[0]).eql(expected);
   });
 });
