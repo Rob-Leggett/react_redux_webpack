@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Login from '../app/components/login/Login';
+import Login from '../../app/components/login/Login';
 
 describe('<Login/>', function () {
   it('should have an username input', () => {

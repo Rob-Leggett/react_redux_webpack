@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Navbar from '../components/navbar/Navbar'
+import Users from '../components/user/Users'
 import * as AuthActions from '../actions/authenticate/actions'
 
 export class App extends Component {
@@ -15,9 +16,9 @@ export class App extends Component {
               onLogin={authActions.login}
               onLogout={authActions.logout}
           />
-          <div className='container'>
-            Hello Y'all
-          </div>
+          <Users
+              isAuthenticated={isAuthenticated}
+          />
         </div>
     )
   }

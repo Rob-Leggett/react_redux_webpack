@@ -1,7 +1,25 @@
 .navbar {
   display: flex;
+  justify-content: space-between;
+
 
   .brand {
-    flex: 1;
+    padding: 5px 10px 5px 10px;
+
+    background-color: darkseagreen;
+
+    a {
+      text-decoration: none;
+      cursor: hand;
+      color: white;
+    }
+  }
+
+  .form {
+    align-self: center;
+  }
+
+  @media(min-width: 510px) {
+
   }
 }

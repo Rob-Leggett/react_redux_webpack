@@ -11,12 +11,14 @@ export default class Navbar extends Component {
 
     const navBarStyles = classnames(style.navbar);
     const navBarBrandStyles = classnames(style.brand);
+    const navBarFormStyles = classnames(style.form);
 
     return (
         <nav className={navBarStyles}>
-          <a className={navBarBrandStyles} href="#">User Management App</a>
-          <div className='navbar-form'>
-
+          <div className={navBarBrandStyles}>
+            <a href="#">User Management App</a>
+          </div>
+          <div className={navBarFormStyles}>
             {!isAuthenticated &&
               <Login
                   errors={errors}
