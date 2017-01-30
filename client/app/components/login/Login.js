@@ -1,23 +1,30 @@
 import React, { Component, PropTypes } from 'react'
+import classnames from 'classnames'
+import commonStyle from '../common/common.scss';
 
 export default class Login extends Component {
 
   renderErrors() {
     const { errors } = this.props;
 
+    const errorStyles = classnames(commonStyle.error);
+
     return errors.map((error, i) => {
       return (
-          <p key={i} style={{color:'red'}}>{error}</p>
+          <p key={i} className={errorStyles}>{error}</p>
       );
     });
   }
 
   render() {
+    const formControlStyles = classnames(commonStyle.formControl);
+    const buttonStyles = classnames(commonStyle.btn);
+
     return (
         <div>
-          <input type='text' ref='username' className="form-control" style={{ marginRight: '5px' }} placeholder='Username'/>
-          <input type='password' ref='password' className="form-control" style={{ marginRight: '5px' }} placeholder='Password'/>
-          <button onClick={() => this.handleLogin()} className="btn btn-primary">
+          <input type='text' ref='username' className={formControlStyles} placeholder='Username'/>
+          <input type='password' ref='password' className={formControlStyles} placeholder='Password'/>
+          <button onClick={() => this.handleLogin()} className={buttonStyles}>
             Login
           </button>
 
