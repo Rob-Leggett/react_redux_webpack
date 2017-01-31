@@ -31,7 +31,7 @@ const config = {
         test: /\.scss$/,
         loader: extractCSS.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules=true!sass-loader?sourceMap=true'
+          loader: ['css-loader?modules', 'sass-loader']
         })
       }
     ]
