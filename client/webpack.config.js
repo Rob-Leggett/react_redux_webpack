@@ -7,7 +7,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'app');
 
 let generateHtml = new HtmlWebpackPlugin({ title: 'My App' });
-let extractCSS = new ExtractTextPlugin('styles/[name].css', { allChunks: true });
+let extractCSS = new ExtractTextPlugin({ filename: 'styles/[name].css', allChunks: true });
 
 const config = {
   entry: APP_DIR + '/index.js',
@@ -23,13 +23,16 @@ const config = {
   module : {
     loaders : [
       {
-        test : /\.jsx?/,
+        test : /\.(js|jsx)?/,
         include : APP_DIR,
-        loader : 'babel'
+        loader : 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: extractCSS.extract('style', 'css?modules=true!sass?sourceMap=true')
+        loader: extractCSS.extract({
+          fallbackLoader: 'style-loader',
+          loader: ['css-loader?modules', 'sass-loader']
+        })
       }
     ]
   },

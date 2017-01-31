@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A ReactJS Client",
   "scripts": {
-    "test": "mocha test/helpers/browser.js test/**/*.spec.js",
-    "dev": "webpack-dev-server --content-base public/ --hot --inline",
+    "test": "mocha --require ignore-styles test/helpers/browser.js test/**/*.spec.js",
+    "dev": "webpack-dev-server --hot --inline",
     "build": "webpack -p --display-error-details"
   },
   "repository": {
@@ -21,8 +21,9 @@
     "chai": "^3.5.0",
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.2",
     "html-webpack-plugin": "^2.26.0",
+    "ignore-styles": "^5.0.1",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "node-sass": "^4.3.0",
@@ -30,8 +31,8 @@
     "sass-loader": "^4.1.1",
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.1"
   },
   "dependencies": {
     "babel-core": "^6.21.0",
