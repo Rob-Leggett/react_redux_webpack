@@ -23,22 +23,15 @@ const config = {
   module : {
     loaders : [
       {
-        test : /\.jsx?/,
+        test : /\.(js|jsx)?/,
         include : APP_DIR,
         loader : 'babel-loader'
       },
       {
         test: /\.scss$/,
         loader: extractCSS.extract({
-          loader: [
-            {
-              loader: "css-loader",
-              options: { modules: true }
-            },
-            {
-              loader: "sass-loader"
-            }
-          ]
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader?modules=true!sass-loader?sourceMap=true'
         })
       }
     ]
