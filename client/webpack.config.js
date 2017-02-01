@@ -21,15 +21,15 @@ const config = {
     'react/lib/ReactContext': true,
   },
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.(js|jsx)?/,
         include : APP_DIR,
-        loader : 'babel-loader'
+        use : 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: extractCSS.extract({
+        use: extractCSS.extract({
           fallbackLoader: 'style-loader',
           loader: ['css-loader?modules', 'sass-loader']
         })
