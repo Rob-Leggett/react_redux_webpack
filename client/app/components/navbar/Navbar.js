@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router';
 import classnames from 'classnames'
 import Login from '../login/Login'
 import Logout from '../logout/Logout'
+import Menu from '../menu/Menu'
 import style from './navbar.scss';
 
 export default class Navbar extends Component {
@@ -25,12 +27,11 @@ export default class Navbar extends Component {
                   onLoginClick={ (creds) => onLogin(creds) }
               />
             }
-
             {isAuthenticated &&
               <Logout onLogoutClick={() => onLogout()} />
             }
-
           </div>
+          <Menu isAuthenticated={isAuthenticated}/>
         </nav>
     )
   }

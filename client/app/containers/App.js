@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import classnames from 'classnames'
 import style from './app.scss';
 import Navbar from '../components/navbar/Navbar'
-import Users from '../components/user/Users'
 import * as AuthActions from '../actions/authenticate/actions'
 
 export class App extends Component {
@@ -19,15 +18,18 @@ export class App extends Component {
               isAuthenticated={isAuthenticated}
               errors={errors}
               onLogin={authActions.login}
-              onLogout={authActions.logout}
-          />
-          <Users
-              isAuthenticated={isAuthenticated}
-          />
+              onLogout={authActions.logout} />
+          <div>
+            {this.props.children}
+          </div>
         </div>
     )
   }
 }
+
+// https://css-tricks.com/learning-react-router/
+// https://github.com/StevenIseki/react-router-redux-example
+// https://scotch.io/tutorials/routing-react-apps-the-complete-guide
 
 App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
