@@ -12,6 +12,8 @@ export class App extends Component {
 
     const appStyles = classnames(style.app);
 
+    console.log(this.props);
+
     return (
         <div className={appStyles}>
           <Navbar
@@ -20,7 +22,7 @@ export class App extends Component {
               onLogin={authActions.login}
               onLogout={authActions.logout} />
           <div>
-            {this.props.children}
+            { React.cloneElement(this.props.children, { isAuthenticated }) }
           </div>
         </div>
     )
