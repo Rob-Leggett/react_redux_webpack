@@ -22,7 +22,7 @@ export class App extends Component {
               onLogin={authActions.login}
               onLogout={authActions.logout} />
           <div>
-            { React.cloneElement(this.props.children, { isAuthenticated }) }
+              { this.props.children }
           </div>
         </div>
     )
@@ -32,6 +32,9 @@ export class App extends Component {
 // https://css-tricks.com/learning-react-router/
 // https://github.com/StevenIseki/react-router-redux-example
 // https://scotch.io/tutorials/routing-react-apps-the-complete-guide
+
+//https://www.webpackbin.com/bins/-Kf5cpLcax4dttAEvkCW
+// https://www.npmjs.com/package/connected-react-router
 
 App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
