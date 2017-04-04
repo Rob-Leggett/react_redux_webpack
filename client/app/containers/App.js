@@ -33,6 +33,10 @@ export class App extends Component {
 // https://github.com/StevenIseki/react-router-redux-example
 // https://scotch.io/tutorials/routing-react-apps-the-complete-guide
 
+// https://github.com/ReactTraining/react-router/issues/676 # react route refresh issue
+// TODO: fix project wince updating libraries
+// TODO: remove extractText from scss as live reload not supported
+
 App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   errors: PropTypes.arrayOf(PropTypes.string),
