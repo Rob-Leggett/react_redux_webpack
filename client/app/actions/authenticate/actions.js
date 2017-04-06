@@ -54,6 +54,7 @@ export function login(creds) {
   };
 
   return dispatch => {
+
     dispatch(requestLogin());
 
     return fetch(AUTHENTICATE_ENDPOINT, config)
