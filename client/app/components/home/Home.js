@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
-export default class Home extends Component {
+class Home extends Component {
 
   render() {
     const { isAuthenticated } = this.props;
@@ -22,3 +23,15 @@ export default class Home extends Component {
 Home.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
+
+function mapStateToProps(state) {
+
+  const { authenticate } = state;
+  const { isAuthenticated } = authenticate;
+
+  return {
+    isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Home)

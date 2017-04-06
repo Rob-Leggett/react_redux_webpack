@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames'
 import style from './menu.scss';
 
@@ -15,7 +15,7 @@ export default class Menu extends Component {
     return (
         <div className={navBarMenuStyles}>
           <ul>
-            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/users">Users</Link></li>
           </ul>
         </div>
