@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+
 import classnames from 'classnames'
 import style from './users.scss';
 
-export default class Users extends Component {
+class Users extends Component {
 
   render() {
     const { isAuthenticated } = this.props;
@@ -26,3 +28,15 @@ export default class Users extends Component {
 Users.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
+
+function mapStateToProps(state) {
+
+  const { authenticate } = state;
+  const { isAuthenticated } = authenticate;
+
+  return {
+    isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Users)
