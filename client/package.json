@@ -4,7 +4,7 @@
   "description": "A ReactJS Client",
   "scripts": {
     "test": "mocha --require ignore-styles test/helpers/browser.js test/**/*.spec.js",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "webpack-dev-server --hot --inline --history-api-fallback=true",
     "build": "webpack -p --display-error-details"
   },
   "repository": {
