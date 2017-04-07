@@ -20,23 +20,25 @@ class Navbar extends Component {
     const navBarFormStyles = classnames(style.form);
 
     return (
-        <nav className={navBarStyles}>
-          <div className={navBarBrandStyles}>
-            <a href="#">User Management App</a>
-          </div>
-          <div className={navBarFormStyles}>
-            {!isAuthenticated &&
-              <Login
-                  errors={errors}
-                  onLoginClick={ authActions.login }
-              />
-            }
-            {isAuthenticated &&
-              <Logout onLogoutClick={ authActions.logout } />
-            }
-          </div>
+        <div>
+          <nav className={navBarStyles}>
+            <div className={navBarBrandStyles}>
+              <a href="#">User Management App</a>
+            </div>
+            <div className={navBarFormStyles}>
+              {!isAuthenticated &&
+                <Login
+                    errors={errors}
+                    onLoginClick={ authActions.login }
+                />
+              }
+              {isAuthenticated &&
+                <Logout onLogoutClick={ authActions.logout } />
+              }
+            </div>
+          </nav>
           <Menu isAuthenticated={isAuthenticated}/>
-        </nav>
+        </div>
     )
   }
 }
