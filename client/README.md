@@ -10,19 +10,19 @@ Node v6.9.1
 Build
 =====
 
-npm run build
+`npm run build`
 
 Testing
 =======
 
-npm run test
+`npm run test`
 
 Running
 =======
 
-npm run dev
+`npm run dev`
 
-
+NOTE: this runs web-dev-server with the following flag `--history-api-fallback=true` for page refresh support, if you were to deploy this in a non local environment your server must support the same behavior
 
 ### The webpack dev server is set to run on
 

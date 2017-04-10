@@ -13,18 +13,18 @@ Setup
 ***Database***
 
 1. Install mongoDB.  
-2. navigate to api -> "npm run mongo"
-3. Run "npm run start" to seed the database.
+2. navigate to api -> `npm run mongo`
+3. Run `npm run start` to seed the database.
 
 Testing
 =======
 
-npm run test
+`npm run test`
 
 Running
 =======
 
-npm run start
+`npm run start`
 
 ### The node server is set to run on
 

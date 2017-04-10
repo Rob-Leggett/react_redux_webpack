@@ -4,18 +4,23 @@
 ### Microservice
 
  1. Navigate to api sub directory
- 2. Run "npm run mongo"
- 3. Run "npm run start"
+ 2. Run `npm run mongo`
+ 3. Run `npm run start`
  
  Addition details can be found under api README.MD
 
 ### React
  
  1. Navigate to client sub directory
- 2. Run "npm run dev"
+ 2. Run `npm run dev`
  3. Goto http://localhost:8080
  
  Additional details can be found under client README.MD
+
+### Login
+
+username: `example`  
+password: `password`
 
 
 Donations
