@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333333;
+    background-color: #f5f5f5;
   }
 
   li {
@@ -13,13 +13,13 @@
 
   li a {
     display: block;
-    color: white;
+    color: #111111;
     text-align: center;
     padding: 16px;
     text-decoration: none;
   }
 
   li a:hover {
-    background-color: #111111;
+    background-color: #e8e8e8;
   }
 }

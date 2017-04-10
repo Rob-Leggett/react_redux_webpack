@@ -15,8 +15,8 @@ export default function render(store, history) {
   return (
       <Provider store={store}>
         <BrowserRouter history={history}>
-          <div>
-            <div className={appStyles}>
+          <div className={appStyles}>
+            <div>
               <Navbar/>
             </div>
             <div>

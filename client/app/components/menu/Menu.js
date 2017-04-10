@@ -6,11 +6,7 @@ import style from './menu.scss';
 export default class Menu extends Component {
 
   render() {
-    const { isAuthenticated } = this.props;
-
     const navBarMenuStyles = classnames(style.menu);
-
-    console.log(isAuthenticated);
 
     return (
         <div className={navBarMenuStyles}>
@@ -22,7 +18,3 @@ export default class Menu extends Component {
     )
   }
 }
-
-Menu.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
-};

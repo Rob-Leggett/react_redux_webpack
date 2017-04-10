@@ -5,8 +5,11 @@
 
   .brand {
     padding: 5px 10px 5px 10px;
+    background-color: #205081;
+    width: 70%;
 
-    background-color: darkseagreen;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
     a {
       text-decoration: none;
