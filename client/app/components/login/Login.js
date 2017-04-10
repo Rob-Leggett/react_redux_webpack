@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import classnames from 'classnames'
+import loginStyle from './login.scss';
 import commonStyle from '../common/common.scss';
 
 export default class Login extends Component {
@@ -21,15 +22,20 @@ export default class Login extends Component {
     const formControlStyles = classnames(commonStyle.formControl);
     const buttonStyles = classnames(commonStyle.btn);
 
-    return (
-        <div>
-          <input type='text' ref='username' className={formControlStyles} placeholder='Username'/>
-          <input type='password' ref='password' className={formControlStyles} placeholder='Password'/>
-          <button onClick={() => this.handleLogin()} className={buttonStyles}>
-            Login
-          </button>
+    const loginStyles = classnames(loginStyle.login);
 
-          {this.renderErrors()}
+    return (
+        <div className={loginStyles}>
+          <div>
+            <input type='text' ref='username' className={formControlStyles} placeholder='Username'/>
+            <input type='password' ref='password' className={formControlStyles} placeholder='Password'/>
+          </div>
+          <div>
+            <span>{this.renderErrors()}</span>
+            <button onClick={() => this.handleLogin()} className={buttonStyles}>
+              Login
+            </button>
+          </div>
         </div>
     )
   }
