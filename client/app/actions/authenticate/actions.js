@@ -62,7 +62,7 @@ export function login(creds) {
             response.json().then(user => ({ user, response }))
         ).then(({ user, response }) =>  {
           if (response.ok) {
-            localStorage.setItem('token', user.token);
+            localStorage.setItem('user', JSON.stringify(user));
             dispatch(receiveLogin(user))
           } else {
             dispatch(loginError(user.error));
@@ -75,7 +75,7 @@ export function login(creds) {
 export function logout() {
   return dispatch => {
     dispatch(requestLogout());
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     dispatch(receiveLogout())
   }
 }

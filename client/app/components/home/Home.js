@@ -6,7 +6,7 @@ import style from './home.scss';
 class Home extends Component {
 
   render() {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, user } = this.props;
 
     const navBarHomeStyles = classnames(style.home);
 
@@ -17,7 +17,7 @@ class Home extends Component {
           }
 
           {isAuthenticated &&
-          <div>Welcome (insert name here)  to our user management platform</div>
+          <div>Welcome <b>{user.name}</b> to our user management platform</div>
           }
         </div>
     )
@@ -31,10 +31,11 @@ Home.propTypes = {
 function mapStateToProps(state) {
 
   const { authenticate } = state;
-  const { isAuthenticated } = authenticate;
+  const { isAuthenticated, user } = authenticate;
 
   return {
-    isAuthenticated
+    isAuthenticated,
+    user
   }
 }
 

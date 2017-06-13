@@ -2,9 +2,12 @@ import {
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_REQUEST, LOGOUT_SUCCESS
 } from '../actions/authenticate/actions'
 
+const user = JSON.parse(localStorage.getItem('user'));
+
 const initialState = {
   isFetching: false,
-  isAuthenticated: !!localStorage.getItem('token'),
+  isAuthenticated: !!user,
+  user,
   errors: []
 };
 
