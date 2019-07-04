@@ -7,7 +7,9 @@
     "mongo": "mongod --dbpath=database",
     "setup": "mongo react_redux_example_db --eval \"db.dropDatabase()\"",
     "test": "mocha test/**/*.js",
-    "start": "npm run setup && NODE_ENV=development node app/server.js"
+    "start": "npm run setup && NODE_ENV=development node app/server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
     "express": "^4.15.2",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.2",
-    "morgan": "^1.8.1"
-  }
+    "morgan": "^1.8.1",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
