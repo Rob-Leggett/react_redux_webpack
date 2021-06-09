@@ -5,7 +5,9 @@
   "scripts": {
     "test": "mocha --require ignore-styles test/helpers/browser.js test/**/*.spec.js",
     "dev": "webpack-dev-server --hot --inline --history-api-fallback=true",
-    "build": "webpack -p --display-error-details"
+    "build": "webpack -p --display-error-details",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -51,6 +53,8 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "whatwg-fetch": "^2.0.3"
-  }
+    "whatwg-fetch": "^2.0.3",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
