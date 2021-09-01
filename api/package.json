@@ -29,7 +29,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.3.0",
-    "mongoose": "^5.12.3",
+    "mongoose": "^6.0.4",
     "morgan": "^1.8.1"
   }
 }
