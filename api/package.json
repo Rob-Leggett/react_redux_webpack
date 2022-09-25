@@ -28,7 +28,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "jsonwebtoken": "^7.3.0",
+    "jsonwebtoken": "^8.0.0",
     "mongoose": "^5.12.3",
     "morgan": "^1.8.1"
   }
