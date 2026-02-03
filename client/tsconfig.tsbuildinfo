@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/home.tsx","./src/components/layout.tsx","./src/components/users.tsx","./src/features/auth/login.tsx","./src/features/auth/authslice.ts","./src/store/hooks.ts","./src/store/index.ts","./src/test/home.test.tsx","./src/test/authslice.test.ts","./src/test/setup.ts"],"version":"5.9.3"}

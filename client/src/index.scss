@@ -1,0 +1,174 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  &__brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  &__links {
+    display: flex;
+    gap: 1rem;
+    
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+  }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+  
+  &--primary {
+    background-color: #646cff;
+    color: #fff;
+  }
+  
+  &--danger {
+    background-color: #ff4444;
+    color: #fff;
+  }
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  
+  &__card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  &__title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  &__input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    
+    &:focus {
+      outline: none;
+      border-color: #646cff;
+    }
+  }
+  
+  &__error {
+    color: #ff4444;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+}
+
+.home {
+  padding: 2rem;
+  
+  &__welcome {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  &__message {
+    color: #666;
+  }
+}
+
+.users {
+  padding: 2rem;
+  
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+  
+  &__list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+  
+  &__item {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+}
+
+main {
+  min-height: calc(100vh - 60px);
+}

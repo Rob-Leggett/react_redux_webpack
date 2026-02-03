@@ -1,35 +1,192 @@
-# react_redux_webpack
-[![Build Status](https://travis-ci.org/Rob-Leggett/react_redux_webpack.svg?branch=master)](https://travis-ci.org/Rob-Leggett/react_redux_webpack)
+# React Redux Modern Stack
 
-### Microservice
+[![CI](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml/badge.svg)](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB)](https://reactjs.org/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.1-764ABC)](https://redux-toolkit.js.org/)
 
- 1. Navigate to api sub directory
- 2. Run `npm run mongo`
- 3. Run `npm run start`
- 
- Addition details can be found under api README.MD
+A modern full-stack application demonstrating React 18, Redux Toolkit, TypeScript, Vite, and Express with MongoDB.
 
-### React
- 
- 1. Navigate to client sub directory
- 2. Run `npm run dev`
- 3. Goto http://localhost:8080
- 
- Additional details can be found under client README.MD
+## 🚀 Tech Stack
 
-### Login
+### Client
+- **React 18** with functional components and hooks
+- **Redux Toolkit** for state management
+- **React Router 6** for routing
+- **TypeScript** for type safety
+- **Vite** for fast development and building
+- **Vitest** + **React Testing Library** for testing
+- **SCSS** for styling
 
-username: `example`  
-password: `password`
+### API
+- **Express 4.18** with TypeScript
+- **Mongoose 8** for MongoDB ODM
+- **JWT** for authentication
+- **Environment-based configuration**
 
+### DevOps
+- **GitHub Actions** for CI/CD
+- **Docker Compose** for local development
+- **ESLint** for code quality
 
-Donations
-====================
+## 📋 Prerequisites
 
-### How you can help?
+- Node.js 20+ (use `nvm use` if you have nvm installed)
+- MongoDB 7+ (or use Docker)
+- npm 10+
 
-Any donations received will be able to assist me provide more blog entries and examples via GitHub, any contributions provided is greatly appreciated.
+## 🛠️ Quick Start
 
-Thanks for your support.
+### Option 1: Docker (Recommended)
 
-[![paypal](https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EV2ZLZBABFJ34&lc=AU&item_name=Research%20%26%20Development&currency_code=AUD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+```bash
+# Start all services (MongoDB, API, Client)
+docker-compose up
+
+# Access the app at http://localhost:8080
+```
+
+### Option 2: Manual Setup
+
+#### 1. Start MongoDB
+```bash
+# If you have MongoDB installed locally
+mongod
+
+# Or run just MongoDB via Docker
+docker run -d -p 27017:27017 --name mongodb mongo:7
+```
+
+#### 2. Start the API
+```bash
+cd api
+cp .env.example .env  # Configure environment variables
+npm install
+npm run dev
+```
+
+#### 3. Start the Client
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Open http://localhost:8080 in your browser.
+
+## 🔐 Default Login
+
+```
+Username: example
+Password: password
+```
+
+## 📁 Project Structure
+
+```
+├── .github/
+│   └── workflows/
+│       └── ci.yml          # GitHub Actions CI workflow
+├── api/
+│   ├── src/
+│   │   ├── config/         # Environment configuration
+│   │   ├── middleware/     # Express middleware (auth)
+│   │   ├── models/         # Mongoose models
+│   │   ├── routes/         # API routes
+│   │   └── server.ts       # Express app entry
+│   ├── Dockerfile
+│   ├── package.json
+│   └── tsconfig.json
+├── client/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── features/       # Feature slices (Redux Toolkit)
+│   │   ├── store/          # Redux store configuration
+│   │   ├── test/           # Test utilities and tests
+│   │   ├── App.tsx         # Main app component
+│   │   └── main.tsx        # Entry point
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── vite.config.ts
+├── docker-compose.yml
+└── README.md
+```
+
+## 🧪 Testing
+
+```bash
+# Client tests
+cd client && npm test
+
+# API tests
+cd api && npm test
+
+# Watch mode
+npm run test:watch
+```
+
+## 📝 API Endpoints
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/authenticate` | No | Login, returns JWT |
+| GET | `/users` | JWT | List all users |
+| GET | `/customer` | JWT | List all customers |
+| GET | `/customer/:id` | JWT | Get customer by ID |
+| POST | `/customer` | JWT | Create customer |
+| PUT | `/customer/:id` | JWT | Update customer |
+| DELETE | `/customer/:id` | JWT | Delete customer |
+| GET | `/health` | No | Health check |
+
+## 🔧 Available Scripts
+
+### Client
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm test` | Run tests |
+| `npm run lint` | Lint code |
+| `npm run type-check` | TypeScript type checking |
+
+### API
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server (hot reload) |
+| `npm run build` | Build TypeScript to JavaScript |
+| `npm start` | Start production server |
+| `npm test` | Run tests |
+| `npm run lint` | Lint code |
+| `npm run type-check` | TypeScript type checking |
+
+## 📦 Environment Variables
+
+### API (.env)
+```env
+NODE_ENV=development
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/react_redux_example_db
+JWT_SECRET=your-secret-key
+JWT_EXPIRES_IN=24h
+CORS_ORIGINS=http://localhost:8080
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Migrated from legacy stack (React 15, Webpack 2, Node 6) to modern tooling in 2024.**

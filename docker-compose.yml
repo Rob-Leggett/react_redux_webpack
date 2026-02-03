@@ -1,0 +1,46 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: react-redux-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=react_redux_example_db
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: react-redux-api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/react_redux_example_db
+      - JWT_SECRET=docker-development-secret
+      - CORS_ORIGINS=http://localhost:8080
+    depends_on:
+      - mongodb
+    volumes:
+      - ./api/src:/app/src
+    command: npm run dev
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: react-redux-client
+    ports:
+      - "8080:8080"
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    depends_on:
+      - api
+    volumes:
+      - ./client/src:/app/src
+    command: npm run dev
+
+volumes:
+  mongodb_data:
