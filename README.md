@@ -3,25 +3,27 @@
 [![CI](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml/badge.svg)](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-18-61DAFB)](https://reactjs.org/)
-[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.1-764ABC)](https://redux-toolkit.js.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB)](https://reactjs.org/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.5-764ABC)](https://redux-toolkit.js.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF)](https://vitejs.dev/)
+[![Express](https://img.shields.io/badge/Express-5-000000)](https://expressjs.com/)
 
-A modern full-stack application demonstrating React 18, Redux Toolkit, TypeScript, Vite, and Express with MongoDB.
+A modern full-stack application demonstrating React 19, Redux Toolkit, TypeScript, Vite, and Express with MongoDB.
 
 ## 🚀 Tech Stack
 
 ### Client
-- **React 18** with functional components and hooks
+- **React 19** with functional components and hooks
 - **Redux Toolkit** for state management
-- **React Router 6** for routing
+- **React Router 7** for routing
 - **TypeScript** for type safety
-- **Vite** for fast development and building
+- **Vite 6** for fast development and building
 - **Vitest** + **React Testing Library** for testing
 - **SCSS** for styling
 
 ### API
-- **Express 4.18** with TypeScript
+- **Express 5** with TypeScript
 - **Mongoose 8** for MongoDB ODM
 - **JWT** for authentication
 - **Environment-based configuration**
@@ -29,7 +31,7 @@ A modern full-stack application demonstrating React 18, Redux Toolkit, TypeScrip
 ### DevOps
 - **GitHub Actions** for CI/CD
 - **Docker Compose** for local development
-- **ESLint** for code quality
+- **ESLint 9** for code quality
 
 ## 📋 Prerequisites
 
