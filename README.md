@@ -1,13 +1,6 @@
 # React Redux Modern Stack
 
-[![CI](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml/badge.svg)](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D26-brightgreen)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB)](https://reactjs.org/)
-[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.13-764ABC)](https://redux-toolkit.js.org/)
-[![webpack](https://img.shields.io/badge/webpack-5-8DD6F9)](https://webpack.js.org/)
-[![Express](https://img.shields.io/badge/Express-5-000000)](https://expressjs.com/)
+[![CI](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/Rob-Leggett/react_redux_webpack)](LICENSE) [![Node.js 26](https://img.shields.io/badge/Node.js-26-5FA04E?logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![React 19.3](https://img.shields.io/badge/React-19.3-61DAFB?logo=react&logoColor=white)](https://react.dev/) [![Redux Toolkit 2.13](https://img.shields.io/badge/Redux%20Toolkit-2.13-764ABC?logo=redux&logoColor=white)](https://redux-toolkit.js.org/) [![webpack 5.112](https://img.shields.io/badge/webpack-5.112-8DD6F9?logo=webpack&logoColor=white)](https://webpack.js.org/) [![Express 5.3](https://img.shields.io/badge/Express-5.3-000000?logo=express&logoColor=white)](https://expressjs.com/) [![TypeScript 6.0](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 A modern full-stack application demonstrating React 19, Redux Toolkit, TypeScript, webpack 5, and Express with MongoDB.
 
