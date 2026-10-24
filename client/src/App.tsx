@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router';
 import { useAppSelector } from './store/hooks';
 import { selectIsAuthenticated } from './features/auth/authSlice';
 import Layout from './components/Layout';

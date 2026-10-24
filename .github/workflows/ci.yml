@@ -2,70 +2,41 @@ name: CI
 
 on:
   push:
-    branches: [master, main]
+    branches: [master]
+    paths-ignore: ['**/*.md', 'docs/**', 'wiki/**']
   pull_request:
-    branches: [master, main]
+    branches: [master]
+    paths-ignore: ['**/*.md', 'docs/**', 'wiki/**']
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
 
 jobs:
-  client:
-    name: Client Tests
+  build:
+    name: Build & Test (api + client)
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: client
+    timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'npm'
-          cache-dependency-path: client/package-lock.json
+          cache-dependency-path: |
+            api/package-lock.json
+            client/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Type check
-        run: npm run type-check
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm test
-
-      - name: Build
-        run: npm run build
-
-  api:
-    name: API Tests
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: api
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: api/package-lock.json
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Type check
-        run: npm run type-check
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
-        run: npm run build
+      - name: Install, type check, lint, test and build
+        run: |
+          for pkg in api client; do
+            echo "::group::$pkg"
+            (cd "$pkg" && npm ci && npm run type-check && npm run lint && npm test && npm run build)
+            echo "::endgroup::"
+          done

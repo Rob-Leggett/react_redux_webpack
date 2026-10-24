@@ -46,7 +46,7 @@ router.put('/:id', async (req: AuthRequest, res: Response): Promise<void> => {
     const customer = await Customer.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true }
+      { returnDocument: 'after', runValidators: true }
     );
     if (!customer) {
       res.status(404).json({ success: false, message: 'Customer not found' });

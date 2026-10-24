@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 export const config = {
   port: parseInt(process.env.PORT || '3000', 10),

@@ -2,42 +2,42 @@
 
 [![CI](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml/badge.svg)](https://github.com/Rob-Leggett/react_redux_webpack/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D26-brightgreen)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB)](https://reactjs.org/)
-[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.5-764ABC)](https://redux-toolkit.js.org/)
-[![Vite](https://img.shields.io/badge/Vite-6-646CFF)](https://vitejs.dev/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.13-764ABC)](https://redux-toolkit.js.org/)
+[![webpack](https://img.shields.io/badge/webpack-5-8DD6F9)](https://webpack.js.org/)
 [![Express](https://img.shields.io/badge/Express-5-000000)](https://expressjs.com/)
 
-A modern full-stack application demonstrating React 19, Redux Toolkit, TypeScript, Vite, and Express with MongoDB.
+A modern full-stack application demonstrating React 19, Redux Toolkit, TypeScript, webpack 5, and Express with MongoDB.
 
 ## 🚀 Tech Stack
 
 ### Client
 - **React 19** with functional components and hooks
 - **Redux Toolkit** for state management
-- **React Router 7** for routing
-- **TypeScript** for type safety
-- **Vite 6** for fast development and building
+- **React Router 8** for routing
+- **TypeScript 6** for type safety
+- **webpack 5** (`ts-loader`, `sass-loader`, React Fast Refresh, `webpack-dev-server`) for development and building
 - **Vitest** + **React Testing Library** for testing
 - **SCSS** for styling
 
 ### API
 - **Express 5** with TypeScript
-- **Mongoose 8** for MongoDB ODM
+- **Mongoose 9** for MongoDB ODM
 - **JWT** for authentication
 - **Environment-based configuration**
 
 ### DevOps
 - **GitHub Actions** for CI/CD
 - **Docker Compose** for local development
-- **ESLint 9** for code quality
+- **ESLint 10** for code quality
 
 ## 📋 Prerequisites
 
-- Node.js 20+ (use `nvm use` if you have nvm installed)
-- MongoDB 7+ (or use Docker)
-- npm 10+
+- Node.js 26+ (use `nvm use` if you have nvm installed)
+- MongoDB 8+ (or use Docker)
+- npm 11+
 
 ## 🛠️ Quick Start
 
@@ -58,7 +58,7 @@ docker-compose up
 mongod
 
 # Or run just MongoDB via Docker
-docker run -d -p 27017:27017 --name mongodb mongo:7
+docker run -d -p 27017:27017 --name mongodb mongo:8
 ```
 
 #### 2. Start the API
@@ -76,7 +76,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:8080 in your browser.
+Open http://localhost:8080 in your browser. The webpack dev server proxies `/api/*` to the API (`API_URL`, default `http://localhost:3000`).
 
 ## 🔐 Default Login
 
@@ -112,7 +112,8 @@ Password: password
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── tsconfig.json
-│   └── vite.config.ts
+│   ├── vitest.config.ts
+│   └── webpack.config.mjs
 ├── docker-compose.yml
 └── README.md
 ```
@@ -148,9 +149,9 @@ npm run test:watch
 ### Client
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
+| `npm run dev` | Start webpack dev server (http://localhost:8080) |
+| `npm run build` | Type check and build for production with webpack |
+| `npm run preview` | Serve a production-mode build with webpack dev server |
 | `npm test` | Run tests |
 | `npm run lint` | Lint code |
 | `npm run type-check` | TypeScript type checking |
@@ -191,4 +192,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Migrated from legacy stack (React 15, Webpack 2, Node 6) to modern tooling in 2024.**
+**Migrated from legacy stack (React 15, Webpack 2, Node 6) to modern tooling (React 19, webpack 5, Node 26).**

@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { logout, selectUser } from '../features/auth/authSlice';
 

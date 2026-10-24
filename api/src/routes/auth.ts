@@ -6,7 +6,8 @@ import { config } from '../config/index.js';
 const router = Router();
 
 router.post('/', async (req: Request, res: Response): Promise<void> => {
-  const { username, password } = req.body;
+  // Express 5 leaves req.body undefined when no body was parsed
+  const { username, password } = req.body ?? {};
 
   if (!username || !password) {
     res.status(400).json({
