@@ -169,6 +169,8 @@ MONGODB_URI=mongodb://localhost:27017/react_redux_example_db
 JWT_SECRET=your-secret-key
 JWT_EXPIRES_IN=24h
 CORS_ORIGINS=http://localhost:8080
+RATE_LIMIT_MAX=300        # requests per 15 min per IP (customer/users routes)
+AUTH_RATE_LIMIT_MAX=20    # requests per 15 min per IP (/authenticate)
 ```
 
 ## 🤝 Contributing

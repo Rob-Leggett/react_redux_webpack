@@ -1,9 +1,11 @@
 import { Router, Response } from 'express';
 import { User } from '../models/User.js';
 import { AuthRequest, authenticateToken } from '../middleware/auth.js';
+import { apiLimiter } from '../middleware/rateLimit.js';
 
 const router = Router();
 
+router.use(apiLimiter);
 router.use(authenticateToken);
 
 router.get('/', async (_req: AuthRequest, res: Response): Promise<void> => {

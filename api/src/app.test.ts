@@ -18,6 +18,20 @@ describe('app', () => {
     expect(res.body.success).toBe(false);
   });
 
+  it('POST /authenticate rejects non-string credentials (operator injection)', async () => {
+    const res = await request(app)
+      .post('/authenticate')
+      .send({ username: { $ne: null }, password: { $ne: null } });
+
+    expect(res.status).toBe(400);
+  });
+
+  it('rate limits /authenticate', async () => {
+    const res = await request(app).post('/authenticate');
+
+    expect(res.headers).toHaveProperty('ratelimit-policy');
+  });
+
   it('rejects protected routes without a token', async () => {
     const res = await request(app).get('/users');
 

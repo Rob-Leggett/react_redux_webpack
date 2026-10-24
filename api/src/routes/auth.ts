@@ -2,14 +2,15 @@ import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/User.js';
 import { config } from '../config/index.js';
+import { authLimiter } from '../middleware/rateLimit.js';
 
 const router = Router();
 
-router.post('/', async (req: Request, res: Response): Promise<void> => {
+router.post('/', authLimiter, async (req: Request, res: Response): Promise<void> => {
   // Express 5 leaves req.body undefined when no body was parsed
   const { username, password } = req.body ?? {};
 
-  if (!username || !password) {
+  if (typeof username !== 'string' || typeof password !== 'string' || !username || !password) {
     res.status(400).json({
       success: false,
       message: 'Username and password are required',
@@ -18,7 +19,7 @@ router.post('/', async (req: Request, res: Response): Promise<void> => {
   }
 
   try {
-    const user = await User.findOne({ name: username });
+    const user = await User.findOne({ name: { $eq: username } });
 
     if (!user || user.password !== password) {
       res.status(401).json({

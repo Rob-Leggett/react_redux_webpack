@@ -1,9 +1,21 @@
 import { Router, Response } from 'express';
 import { Customer } from '../models/Customer.js';
 import { AuthRequest, authenticateToken } from '../middleware/auth.js';
+import { apiLimiter } from '../middleware/rateLimit.js';
 
 const router = Router();
 
+// Only accept known scalar fields so request bodies can't inject query operators or extra fields
+function customerFields(body: unknown): Partial<Record<'firstName' | 'lastName' | 'company', string>> {
+  const input = (body ?? {}) as Record<string, unknown>;
+  const fields: Partial<Record<'firstName' | 'lastName' | 'company', string>> = {};
+  for (const key of ['firstName', 'lastName', 'company'] as const) {
+    if (typeof input[key] === 'string') fields[key] = input[key];
+  }
+  return fields;
+}
+
+router.use(apiLimiter);
 router.use(authenticateToken);
 
 router.get('/', async (_req: AuthRequest, res: Response): Promise<void> => {
@@ -32,7 +44,7 @@ router.get('/:id', async (req: AuthRequest, res: Response): Promise<void> => {
 
 router.post('/', async (req: AuthRequest, res: Response): Promise<void> => {
   try {
-    const customer = new Customer(req.body);
+    const customer = new Customer(customerFields(req.body));
     await customer.save();
     res.status(201).json({ success: true, customer });
   } catch (error) {
@@ -45,7 +57,7 @@ router.put('/:id', async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const customer = await Customer.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      { $set: customerFields(req.body) },
       { returnDocument: 'after', runValidators: true }
     );
     if (!customer) {
